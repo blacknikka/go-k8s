@@ -1,6 +1,10 @@
 package random
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // Random ランダム
 type Random interface {
@@ -13,13 +17,14 @@ type random struct {
 
 // NewRandom ランダムのインスタンス
 func NewRandom() Random {
+	rand.Seed(time.Now().UnixNano())
 	return &random{}
 }
 
 func (r random) GetRandomValue() int64 {
-	return 100
+	return rand.Int63()
 }
 
 func (r random) ShowRandomValue() {
-	fmt.Printf("value: %v\n", 100)
+	fmt.Printf("value: %v\n", rand.Int63())
 }
