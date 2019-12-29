@@ -19,14 +19,21 @@ spec:
         volumeMounts:
         - name: go-src-volume
           mountPath: /go/src/github.com/blacknikka/go-k8s
-        command: ["sleep", "9999"]
-        # resources:
-        #   limits:
-        #     cpu: 200m
-        #     memory: 1Gi
-        #   requests:
-        #     cpu: 100m
-        #     memory: 100Mi
+        command: ["bash", "-c"]
+        args:
+        - |
+          rm -rf ./docker && \
+          rm -rf ./k8s && \
+          mv ./src/* ./ && \
+          rm -rf ./src && \
+          go run main.go
+        resources:
+          limits:
+            cpu: 200m
+            memory: 1Gi
+          requests:
+            cpu: 100m
+            memory: 100Mi
       initContainers:
       - name: init
         image: blacknikka/src-cloner:0.1
