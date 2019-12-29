@@ -1,4 +1,5 @@
-#!/bin/ash
+#!/bin/bash
+set -Ceu
 
 if [ -z $CONTENTS_SOURCE_URL ]; then
     exit 1
