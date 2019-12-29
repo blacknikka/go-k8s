@@ -9,4 +9,4 @@ WORKDIR /src
 COPY ./cloner/cloner.sh /cloner.sh
 RUN chmod a+x /cloner.sh
 
-CMD ["/cloner.sh"]
+CMD ["sh", "/cloner.sh"]
