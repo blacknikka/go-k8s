@@ -9,4 +9,4 @@ RUN go get -u github.com/go-delve/delve/cmd/dlv \
 
 ENV PATH $PATH:/go/bin
 
-CMD ["go", "run", "./src/main.go"]
+CMD ["go", "run", "./main.go"]
