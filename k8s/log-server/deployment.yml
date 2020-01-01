@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-server-deployment
+spec:
+  selector:
+    matchLabels:
+      app: log-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: log-server
+    spec:
+      containers:
+      - name: fluent
+        image: blacknikka/fluent-server:0.1
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: container-log
+          mountPath: /fluentlog/log
+        - name: container-files
+          mountPath: /fluentlog/files
+      volumes:
+      - name: container-log
+        emptyDir: {}
+      - name: container-files
+        emptyDir: {}

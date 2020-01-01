@@ -19,6 +19,9 @@ spec:
         volumeMounts:
         - name: go-src-volume
           mountPath: /go/src/github.com/blacknikka/go-k8s
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
         command: ["bash", "-c"]
         args:
         - |
@@ -47,3 +50,6 @@ spec:
       volumes:
       - name: go-src-volume
         emptyDir: {}
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
