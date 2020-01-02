@@ -13,6 +13,7 @@ spec:
     spec:
       containers:
       - image: blacknikka/fluent-client:0.1
+    #   - image: blacknikka/fluent-client:to_file
         imagePullPolicy: Always
         name: fluentd
         volumeMounts:
@@ -21,15 +22,6 @@ spec:
         - name: varlibdockercontainers
           mountPath: /var/lib/docker/containers
           readOnly: true
-        # securityContext:
-        #   privileged: true
-        #   readOnlyRootFilesystem: true
-    #   securityContext:
-    #     privileged: true
-      securityContext:
-        runAsUser: 0
-        runAsGroup: 0
-        fsGroup: 2000
       volumes:
       - name: varlog
         hostPath:
