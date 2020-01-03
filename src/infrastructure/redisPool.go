@@ -19,7 +19,7 @@ func NewRedis() RedisPool {
 }
 
 func (r *redisPool) NewRedisPool() redis.Conn {
-	conn, err := redis.Dial("tcp", "172.17.0.2:6379")
+	conn, err := redis.Dial("tcp", "redis-server:6379")
 	r.redisConn = conn
 	if err != nil {
 		panic(err)
