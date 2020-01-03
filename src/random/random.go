@@ -1,7 +1,6 @@
 package random
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -9,7 +8,6 @@ import (
 // Random ランダム
 type Random interface {
 	GetRandomValue() int64
-	ShowRandomValue()
 }
 
 type random struct {
@@ -23,8 +21,4 @@ func NewRandom() Random {
 
 func (r random) GetRandomValue() int64 {
 	return rand.Int63()
-}
-
-func (r random) ShowRandomValue() {
-	fmt.Printf("value: %v\n", rand.Int63())
 }

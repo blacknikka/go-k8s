@@ -13,7 +13,6 @@ spec:
     spec:
       containers:
       - image: blacknikka/fluent-client:0.1
-    #   - image: blacknikka/fluent-client:to_file
         imagePullPolicy: Always
         name: fluentd
         volumeMounts:
